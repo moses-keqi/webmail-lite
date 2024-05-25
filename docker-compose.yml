@@ -1,0 +1,32 @@
+version: '3.7'
+services:
+  webmail-lite:
+    image: moese/afterlogic-webmail-lite:1.0.1
+    container_name: webmail-lite
+    hostname: mail.learning.com
+    ports:
+      - "1080:80"
+      - "25:25"
+      - "110:110"
+      - "143:143"
+    environment:
+      - "TZ=Asia/Shanghai"
+      - "MYSQL_ROOT_PASSWORD=xLnHamLbN9RD"
+      - "MAIL_DB_HOST=mysql"
+      - "MAIL_DB_PORT=3306"
+      - "MAIL_DB_NAME=learning"
+      - "MAIL_DB_ROOT_USERNAME=root"
+    volumes:
+      - "./data/document:/data/document"
+      - "./data/mail:/data/mail"
+    restart: always
+    privileged: true
+    networks:
+      application:
+        aliases:
+          - webmail-lite
+networks:
+  application:
+    name: commons
+    driver: bridge
+
