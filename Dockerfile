@@ -39,7 +39,7 @@ COPY config/php.ini /etc/php81/conf.d/custom.ini
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 
-RUN mkdir -p /var/www/html && mkdir mkdir -p /data/mail && chown -R vmail:vmail /data/mail
+RUN mkdir -p /var/www/html && mkdir mkdir -p /data/mail
 
 WORKDIR /var/www/html
 

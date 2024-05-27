@@ -23,6 +23,9 @@ envsubst < /etc/dovecot/dovecot-dict-sql.conf.ext.tpl > /etc/dovecot/dovecot-dic
 envsubst < /etc/dovecot/dovecot-sql.conf.ext.tpl > /etc/dovecot/dovecot-sql.conf.ext
 echo "初始化dovecot完成"
 
+echo "授权邮件目录  vmail:vmail /data/mail"
+chown -R vmail:vmail /data/mail
+echo "授权邮件目录结束"
 exec /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
 
 
