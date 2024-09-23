@@ -38,3 +38,20 @@ virtual_transport = lmtp:unix:/var/run/dovecot/lmtp
 smtpd_tls_cert_file=/etc/ssl/certs/dovecot.pem
 smtpd_tls_key_file=/etc/ssl/private/dovecot.pem
 smtpd_use_tls=yes
+
+
+
+
+# 邮箱空间不做限制
+mailbox_size_limit=0
+# 配置可以发送的邮件大小为50M
+message_size_limit=0
+
+#退信和超时设置
+queue_run_delay = 200s
+minimal_backoff_time = 200s
+maximal_backoff_time = 300s
+bounce_queue_lifetime = 300s
+maximal_queue_lifetime = 300s
+
+
