@@ -13,7 +13,7 @@ envsubst < /etc/postfix/mysql/mysql_bcc_user.cf.tpl > /etc/postfix/mysql/mysql_b
 postconf -e "myhostname = $(hostname -f)"
 postconf -e "mydomain = $(hostname -d)"
 postconf -e "myorigin = $(hostname -f)"
-postconf -e "mynetworks = 127.0.0.0/8"
+postconf -e "mynetworks = $(hostname -i)/8"
 
 echo "初始化postfix完成"
 
